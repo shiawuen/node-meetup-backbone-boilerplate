@@ -1,315 +1,517 @@
-<!doctype html>  
+<!doctype html>
 <html lang="en">
-	
-	<head>
-		<meta charset="utf-8">
-		
-		<title>reveal.js - The HTML Presentation Framework</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+  <head>
+    <meta charset="utf-8">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		
-		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-		
-		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/theme/default.css">
+    <title>
+      Backbone Boilerplate -
+      Better structure and more organize for your Backbone app -
+      by shiawuen
+    </title>
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
 
-		<script>
-			// If the query includes 'print-pdf' we'll use the PDF print sheet
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!--
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    -->
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-	
-	<body>
-		
-		<div class="reveal">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,800' rel='stylesheet' type='text/css' />
 
-			<!-- Used to fade in a background when a specific slide state is reached -->
-			<div class="state-background"></div>
-			
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
-				</section>
-				
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with 
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
-					<p>
-						<i><small>- <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small></i>
-					</p>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme/beige.css">
+    <link rel="stylesheet" href="css/custom.css">
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you run the speaker notes server.
-					</aside>
-				</section>
-				
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#/2/1">down</a>.
-						</p>
-						<a href="#/2/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-				<section>
-					<h2>Holistic Overview</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview!
-					</p>
-				</section>
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
 
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides pinch your way to the overview.
-					</p>
-				</section>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-				
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
+  <body>
 
-				<section data-markdown>
-					## Markdown support
-					
-					For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+    <div class="reveal">
 
-					<pre><code contenteditable style="margin-top: 20px;">&lt;section data-markdown&gt;
-  ## Markdown support
+      <!-- Used to fade in a background when a specific slide state is reached -->
+      <div class="state-background"></div>
 
-  For those of you who like that sort of thing. 
-  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-&lt;/section&gt;
-					</code></pre>
-				</section>
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Backbone Boilerplate</h1>
+          <h3>
+            Better <span class="highlight">structure</span><br />
+            and<br />
+            more <span class="highlight">organize</span><br />
+            for<br />
+            your <span class="highlight">Backbone app</span>
+          </h3>
+          <p><i><small>
+            by <a href="https://twitter.com/shiawuen">shiawuen</a>
+          </small></i></p>
+        </section>
 
-				<section>
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like:
-					</p>
-					<ul>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=cube">Cube</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=page">Page</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=concave">Concave</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=linear">Linear</a></li>
-					</ul>
-				</section>
+        <section>
+          <h2>Who am I?</h2>
+          <p>Front-end developer</p>
+          <p>@</p>
+          <p class="plain" style="margin-top:-.5em">
+            <img src="img/fm.png" width="115" alt="fm logo" />
+          </p>
+        </section>
 
-				<section>
-					<section data-state="alert">
-						<h2>Global State</h2>
-						<p>
-							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-							will be added as a class to the document element when the slide is open. This lets you
-							apply broader style changes, like switching the background.
-						</p>
-						<a href="#/7/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="blackout">
-						<h2>"blackout"</h2>
-						<a href="#/7/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="soothe">
-						<h2>"soothe"</h2>
-						<a href="#/7/0" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+        <section>
+          <h2 style="margin-top:3em;">
+            I write
+            <span class="highlight" style="font-size:5.5em;color:#FAE833;">JS</span>
+          </h2>
+          <p><i><small>and started doing Backbone 6 months ago</small></i></p>
+        </section>
 
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
+        <section>
+          <h2 style="margin-top:3em;">
+            <span class="highlight" style="font-size:5em;font-weight:800">My pain</span>
+          </h2>
+          <p><i><small>when I got started</small></i></p>
+        </section>
 
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would 
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-					</blockquote>
-				</section>
-				
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-    
-    var nodes = document.querySelectorAll( selector );
+        <section>
+          <section>
+            <h2>
+              1. <span class="highlight">Hell to organize</span> code
+            </h2>
+            <ul>
+              <li>Dynamically templates loading</li>
+              <li>No patterns to follow</li>
+            </ul>
+          </section>
+          <section>
+            <h2>
+              Dynamically templates loading
+            </h2>
+            <pre><code contenteditable>  // omitted ugly code above...
+  vLoaded: false
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+, render: function() {
+    var view = this, $el = this.$el, model = this.model
+      , _render = function() {
+          $el.empty().append( view.tmpl( model.toJSON() ) );
+        };
 
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
+    // Not to mention that we still have to wait till
+    // the model loaded the data
+
+    view.vLoaded
+      ? _render()
+      : app.fetchTemplate( tmplUrl, function( tmpl ) {
+        view.tmpl = _.template( tmpl );
+        view.vLoaded = !1;
+        _render();
+      });
   }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-				
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+  // Diff between $el.empty().append() vs el.innerHTML
+  // http://stackoverflow.com/questions/1903063/what-is-the-difference-between-empty-append-and-html-in-jquery</code></pre>
+          </section>
+          <section>
+            <h2>No patterns to follow</h2>
+            <pre><code contenteditable>var View = Backbone.View.extend({
 
-				<section>
-					<h2>Fragmented Views</h2>
-					<p>Hit the next arrow...</p>
-					<p class="fragment">... to step through ...</p>
-					<ol>
-						<li class="fragment"><code>any type</code></li>
-						<li class="fragment"><em>of view</em></li>
-						<li class="fragment"><strong>fragments</strong></li>
-					</ol>
-				</section>
-				
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://hakim.se/experiments/html5/breakdom/" target="_blank">
-						<img width="320" height="412" src="https://s3.amazonaws.com/hakim-static/reveal-js/breakdom.png" alt="BreakDOM game screenshot">
-					</a>
-				</section>
-				
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
-				
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on github</a></li>
-						<li><a href="http://hakim.se/projects/reveal-js">Read more on my site</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
-				
-				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
-				</section>
-			</div>
+  initialize: function() {
+    this.model.on('sync', this.render, this);
+    // Should I wait collection to load first?
+    // Or we render subviews first?
+    // what if subviews need the data from model?
+    this.collection('sync', this.renderSubviews, this);
+  }
+, renderSubviews: function  () {
+    // What should we do here? wait?
+    // If the subviews later need data from view model
+    // then we need to pass model to the subviews
+    // How do we do?
+  }
+, render: function () { /* Refer previous example */ }
 
-			<!-- The navigational controls UI -->
-			<aside class="controls">
-				<a class="left" href="#">&#x25C4;</a>
-				<a class="right" href="#">&#x25BA;</a>
-				<a class="up" href="#">&#x25B2;</a>
-				<a class="down" href="#">&#x25BC;</a>
-			</aside>
+});</code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>
+              2. <span class="highlight">Hell to manage</span> dependencies
+            </h2>
+            <p>
+              Initial plan
+            </p>
+            <pre><code contenteditable>
+  &lt;script src="js/modules/modulea.js"&gt;&lt;/script&gt;
+  &lt;script src="js/modules/moduleb.js"&gt;&lt;/script&gt; dep on a
+  &lt;script src="js/modules/modulec.js"&gt;&lt;/script&gt; dep on a
+  &lt;script src="js/modules/moduled.js"&gt;&lt;/script&gt; dep on b, c
+  &lt;script src="js/modules/modulee.js"&gt;&lt;/script&gt; dep on a, b, c, d
+  </code></pre>
 
-			<!-- Presentation progress bar -->
-			<div class="progress"><span></span></div>
-			
-		</div>
+            <p>New plan</p>
+            <pre><code contenteditable>
+  &lt;script src="js/modules/modulea.js"&gt;&lt;/script&gt;
+  &lt;script src="js/modules/moduleb.js"&gt;&lt;/script&gt; dep on a
+  &lt;script src="js/modules/modulec.js"&gt;&lt;/script&gt; dep on b, d
+  &lt;script src="js/modules/moduled.js"&gt;&lt;/script&gt; dep on b, c, e
+  &lt;script src="js/modules/modulee.js"&gt;&lt;/script&gt; dep on a, b, c, d
+  </code></pre>
+            <p><i><small>
+              What if we not talking about 5 modules, instead we talking about 20?
+            </small></i></p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>
+              3. Global <span class="highlight">everywhere!</span>
+            </h2>
+            <pre><code contenteditable>
+  // ModA.js, ZERO attempts to organize code
+  var ModAModel = Backbone.Model.extend({})
+  var ModAList = Backbone.Collection.extend({});
+  var ModAViewA = Backbone.View.extend({});
+  var ModAViewB = Backbone.View.extend({});
+  var ModAViewC = Backbone.View.extend({});
+  </code></pre>
+            <pre><code contenteditable>
+  // ModB.js, tried to organize but still exposing globals
+  var ModB = {
+    Model: Backbone.Model.extend({})
+  , List: Backbone.Collection.extend({})
+  , ViewA: Backbone.View.extend({})
+  , ViewB: Backbone.View.extend({})
+  , ViewC: Backbone.View.extend({})
+  };
+  </code></pre>
+          <p><i><small>
+              We also have to worry about name collision for modules! :(
+          </small></i></p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>
+              4. Templates in page = <span class="highlight">HELL</span>
+            </h2>
+            <pre><code contenteditable>
+  &lt;script id="tmpl1" type="text/html"&gt;
+    &lt;-- HTML --&gt;
+  &lt;/script&gt;
+  &lt;script id="tmpl2" type="text/html"&gt;
+    &lt;-- HTML --&gt;
+  &lt;/script&gt;
+  .
+  .
+  .
+  &lt;script id="tmplN" type="text/html"&gt;
+    &lt;-- HTML --&gt;
+  &lt;/script&gt;
+            </code></pre>
+            <p><i><small>
+              Common (lazy) solution is to put all templates in one page,<br />
+              but <strong>it makes page loading slow with unnecessary junk</strong>
+            </small></i></p>
+          </section>
+        </section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+        <section>
+          <h2 style="margin-top:3em;">
+            <span class="highlight" style="font-size:5em;font-weight:800">FUCK IT!</span>
+          </h2>
+          <p><i><small>so I start googling =\</small></i></p>
+        </section>
 
-		<script>
-			
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+        <!-- Example of nested vertical slides -->
+        <section>
+          <section>
+            <h2>
+              Found <span class="highlight">Backbone Boilerplate</span> (BBB)!
+            </h2>
+            <p>&nbsp;</p>
+            <blockquote cite="https://github.com/tbranyen/backbone-boilerplate">
+              A set of best practices and utilities for building Backbone.js applications
+            </blockquote>
+            <p>&nbsp;</p>
+            <p>
+              Created by
+              <a href="https://github.com/tbranyen">
+                Tim Branyen
+              </a>
+            </p>
+            <p><i><small>
+              Core contributor of Backbone.js
+            </small></i></p>
+          </section>
+          <section>
+            <h2>Let&rsquo;s get <span class="highlight">started!</span></h2>
+            <pre><code>
+  # 1. Install
+  $ npm install bbb -g
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
-					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
-				]
-			});
-			
-		</script>
+  # 2. Make you project
+  $ mkdir bbb-101 && cd bbb-101
 
-	</body>
+  # 3. Initialize project
+  $ bbb init
+  </code></pre>
+
+          </section>
+          <section>
+            <h2 style="margin-top:3em;">
+              <span class="highlight" style="font-size: 4em;font-weight:800">Now</span>
+              <br />
+              <span class="highlight-notes">take a look at the file structure...</span>
+            </h2>
+          </section>
+        </section>
+
+        <section>
+          <h2 style="margin-top:3em;">
+            <span class="highlight" style="font-size:4em;font-weight:800;color:#FAE833;">Why</span>
+            <br />
+            <span class="highlight-notes">is it good?</span>
+          </h2>
+        </section>
+
+        <section>
+          <section>
+            <h2>
+              1.
+              <span class="highlight">Good patterns</span>
+              for reference
+            </h2>
+            <pre><code contenteditable>  $ bbb init:module </code></pre>
+            <pre><code contenteditable>
+    // app/modules/auth.js
+
+    define([
+      "app"
+    ],
+    // Map dependencies from above array.
+    function(app) {
+
+      // Create a new module.
+      var Auth = app.module();
+
+      Auth.Model = Backbone.Model.extend({ });
+
+      Auth.Collection = Backbone.Collection.extend({
+        model: Auth.Model
+      });
+
+      // Return the module for AMD compliance.
+      return Auth;
+    });
+    </code></pre>
+          </section>
+          <section>
+            <h2>
+              1.
+              <span class="highlight">Good patterns</span>
+              for reference
+            </h2>
+            <pre><code contenteditable>
+    // app/modules/auth/views.js
+
+    define([
+      "app"
+    , "modules/auth"
+    ],
+    // Map dependencies from above array.
+    function(app, Auth) {
+
+      Auth.Views.View1 = Backbone.View.extend({ });
+      Auth.Views.View2 = Backbone.View.extend({ });
+      Auth.Views.View3 = Backbone.View.extend({ });
+      Auth.Views.View4 = Backbone.View.extend({ });
+
+      return Auth;
+    });
+    </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h2>
+            2.
+            <span class="highlight">No more</span>
+            dependencies issues
+          </h2>
+          <p>
+            Libraries can be use as module<br />
+            even if not made for AMD
+          </p>
+          <pre><code contenteditable>
+  // app/config.js
+
+  // Some codes omitted...
+  paths: {
+    backbone: "../assets/js/libs/backbone"
+  },
+
+  shim: {
+    backbone: {
+      deps: ["lodash", "jquery"],
+      exports: "Backbone"
+    }
+  }
+          </code></pre><pre><code contenteditable>  // Auto dependencies resolve
+  define(['backbone'], function (Backbone) {}); </code></pre>
+        </section>
+
+        <section>
+          <h2>
+            3.
+            <span class="highlight">No more</span>
+            globals and naming collisions
+          </h2>
+          <p>Each JavaScript file = module</p>
+          <p>
+            <i><small>
+              If we manage well, we can end up having with only <code>refine</code> and <code>require</code> as global!
+            </small></i>
+          </p>
+        </section>
+
+        <section>
+          <h2>
+            4.
+            <span class="highlight">No more</span>
+            hassle with templates management
+          </h2>
+          <pre><code contenteditable>
+  // app/route.js
+  var Router = Backbone.Router.extend({
+    routes: {
+      "": "index"
+    },
+
+    index: function() {
+      var model = new Auth.Model();
+      var navs = new Navigation.List();
+
+      app
+        .useLayout('main')
+        .setViews({
+          '#auth': new Auth.Views.AuthScreen({ model:model }),
+          '#nav': new Navigation.Views.Main({ collection: navs })
+        })
+        .render();
+    }
+  });
+          </code></pre>
+        </section>
+
+        <section>
+          <h2 style="margin-top:3em;">
+            <span class="highlight" style="font-size:4em;font-weight:800">Now...</span>
+            <br />
+            <span class="highlight-notes">I can code like a boss!</span>
+          </h2>
+        </section>
+
+        <section>
+          <h2 style="margin-top:2.5em;">
+            <span class="highlight" style="font-size:2em;font-weight:800">
+              Project
+            </span>
+            <br />
+            <span class="highlight-notes">that we currently developing!</span>
+            <br />
+            <a href="http://localhost:8080" target="_BLANK">Go!</a>
+          </h2>
+        </section>
+
+        <section>
+          <h2 style="margin-top:3em;">
+            <span class="highlight" style="font-size:4em;font-weight:800;color:#FAE833;">
+              Q<span style="text-transform:lowercase">s</span>?
+            </span>
+            <br />
+            <span class="highlight-notes">No, please! =P</span>
+          </h2>
+        </section>
+
+        <section>
+          <h2 style="margin-top:2.5em;">
+            <a href="img/pechakucha.jpg" target="_BLANK">
+              <img src="img/pechakucha-logo.gif"alt="Pecha Kucha logo" width="400" />
+            </a>
+          </h2>
+          <p><i><small>
+            Company I work for will be hosting it! <br />
+            <a href="https://www.facebook.com/events/438715816165976/" target="_BLANK">
+              Join the event
+            </a>
+          </small></i></p>
+        </section>
+
+        <section>
+          <h2 style="margin-top:3em;">
+            <span class="highlight" style="font-size:4em;font-weight:800">
+              Thanks!
+            </span>
+          </h2>
+        </section>
+
+        <section>
+          <h2 style="margin-top:4em;"></h2>
+          <p><i><small>fin.</small></i></p>
+        </section>
+      </div>
+
+      <!-- The navigational controls UI -->
+      <aside class="controls">
+        <a class="left" href="#">&#x25C4;</a>
+        <a class="right" href="#">&#x25BA;</a>
+        <a class="up" href="#">&#x25B2;</a>
+        <a class="down" href="#">&#x25BC;</a>
+      </aside>
+
+      <!-- Presentation progress bar -->
+      <div class="progress"><span></span></div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+          { src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+        ]
+      });
+
+    </script>
+
+  </body>
 </html>
